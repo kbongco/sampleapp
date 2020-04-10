@@ -1,0 +1,24 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Sample Inventory</title>
+      {% else %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+      <title>Sample Submission App</title>
+      {% endif %}
+    </head>
+    <body>
+        <div><a href="#">Home</a>
+             <a href="#">Submit samples</a>
+             <a href="#">Search for samples</a>
+             <a href="#">Check Status</a>
+             <a href="#">Login</a></div>
+        <hr>
+      {% block content %}
+      <p>Hello! This is a sample inventory/submission system. This is a simple way 
+      for your QA/QC teams to help manage samples submitted for testing, and 
+      a better way of tracking instead of using an excel sheet.</p>{% endblock %}
+    </body>
+</html>
