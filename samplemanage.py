@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-from flask import render_template, url_for
+from flask import render_template, url_for,redirect
 from flask import request
 from tables import AllSamples
 
@@ -37,16 +37,43 @@ def newsamples():
         samplename = request.form['samplename'],
         devname = request.form['devname'],
         samplesubmitdate = request.form['submitdate'],
-        testsreq = request.form['tests']),
-        others = request.form['other']
+        testsreq = request.form['tests'],
+        other = request.form['otherhere'])
 
         session.add(newsample)
         session.commit()
-        
+
         return redirect(url_for('viewall',newsample = newsample))
 
     else: 
         return render_template('form.html')
+
+@app.route('/view/<int:sample_id>/edit', methods = ['GET', 'POST'])
+def editsample(sample_id):
+    editsamples = session.query(samples).filter_by(id = sample_id).one()
+
+    if request.method == 'POST':
+        if request.form['lotnumber']:
+            editsamples.lotnumber = request.form['lotnumber']
+        if request.form['samplename']:
+            editsamples.samplename = request.form['samplename']
+        if request.form['devname']:
+            editsamples.devname = request.form['devname']
+        if request.form['submitdate']:
+            editsamples.samplesubmitdate = request.form['submitdate']
+        if request.form['tests']:
+            editsamples.testsreq = request.form['tests']
+        if request.form['otherhere']:
+            editsamples.other = request.form['otherhere']
+        
+        session.add(editsamples)
+        session.commit()
+
+        return redirect(url_for('viewall'))
+
+
+
+
 
 
 if __name__ == '__main__':
