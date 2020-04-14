@@ -7,6 +7,17 @@ from tables import AllSamples
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from databasesetup import Base, samples
+
+app = Flask(__name__)
+engine = create_engine('sqlite:///totalsamples.db',
+connect_args = {'check_same_thread': False})
+
+Base.metadata.bind = engine
+DBSession = sessionmaker(bind = engine)
+session = DBSession()
 
 
 
@@ -15,9 +26,9 @@ def home():
     return render_template('base.html')
 
 @app.route('/view')
-def samples():
-    viewsamples = samples.query.all()
-    return render_template('view.html', viewsamples = viewsamples)
+def viewall():
+    all = session.query(samples).all()
+    return render_template('view.html', all = all)
 
 @app.route('/new', methods = ['GET', 'POST'])
 def new():
