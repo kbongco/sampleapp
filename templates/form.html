@@ -1,6 +1,11 @@
-<!DOCTYPE html>>
-<title>Submit your samples here</title>
+{% extends 'base.html' %}
 
+<!DOCTYPE html>>
+{% block header %}
+<title>Submit your samples here</title>
+{% endblock %}
+
+{%block content %}
 <body>
     <h1>Add your samples here!</h1>
 <form action ="{{url_for('newsamples')}}" method = 'POST'>
@@ -19,7 +24,7 @@
         <input type ='text' size = '100' name ='tests'>
 
     <p>Other Instructions</p>
-        <input type='text' size = '100' name ='other'>
+        <input type='text' size = '100' name ='otherhere'>
 
 </br>
 </br>
@@ -30,5 +35,6 @@
 </div>
 
 </form>
+{% endblock %}
 </body>
 </html>
