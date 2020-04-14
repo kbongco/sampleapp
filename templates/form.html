@@ -3,20 +3,23 @@
 
 <body>
     <h1>Add your samples here!</h1>
-<form action ="#" method = 'POST'>
+<form action ="{{url_for('newsamples')}}" method = 'POST'>
     <p>Lot Number:</p>
         <input type ='text' size = '50' name = 'lotnumber'>
     <p>Sample Name:</p>
         <input type = 'text' size = '50' name ="samplename">
 
-    <p>Chemist/Developer:</p>
-        <input type ='text' size = '50' name ='name'>
+    <p>Developer Name:</p>
+        <input type ='text' size = '50' name ='devname'>
     
-    <p>Submission Date</p>
-        <input type = "text" size = '50' name ='submission'>
+    <p>Submit Date</p>
+        <input type = "text" size = '50' name ='submitdate'>
 
     <p>Tests Required/Details</p>
         <input type ='text' size = '100' name ='tests'>
+
+    <p>Other Instructions</p>
+        <input type='text' size = '100' name ='other'>
 
 </br>
 </br>
