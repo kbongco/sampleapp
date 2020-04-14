@@ -31,19 +31,23 @@ def viewall():
     return render_template('view.html', all = all)
 
 @app.route('/new', methods = ['GET', 'POST'])
-def new():
+def newsamples():
     if request.method == 'POST':
         newsample = samples(lotnumber = request.form['lotnumber'],
         samplename = request.form['samplename'],
-        name = request.form['name'],
-        submissiondate = request.form['submission'],
-        testrequired = request.form['tests'])
+        devname = request.form['devname'],
+        samplesubmitdate = request.form['submitdate'],
+        testsreq = request.form['tests']),
+        others = request.form['other']
 
         session.add(newsample)
         session.commit()
-        return redirect(url_for('samples', newsample = newsample))
-    else:
+        
+        return redirect(url_for('viewall',newsample = newsample))
+
+    else: 
         return render_template('form.html')
+
 
 if __name__ == '__main__':
     app.run(debug = True)
