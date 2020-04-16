@@ -27,8 +27,8 @@ def home():
 
 @app.route('/view')
 def viewall():
-    all = session.query(samples).all()
-    return render_template('view.html', all = all)
+    Samples = session.query(samples).all()
+    return render_template('view.html', Samples = Samples)
 
 @app.route('/new', methods = ['GET', 'POST'])
 def newsamples():
@@ -50,26 +50,29 @@ def newsamples():
 
 @app.route('/view/<int:sample_id>/edit', methods = ['GET', 'POST'])
 def editsample(sample_id):
-    editsamples = session.query(samples).filter_by(id = sample_id).one()
-
+    
+    editedsample = session.query(samples).filter_by(id = sample_id).one()
+    
     if request.method == 'POST':
         if request.form['lotnumber']:
-            editsamples.lotnumber = request.form['lotnumber']
+            editedsample.lotnumber = request.form['lotnumber']
         if request.form['samplename']:
-            editsamples.samplename = request.form['samplename']
+            editedsample.samplename = request.form['samplename']
         if request.form['devname']:
-            editsamples.devname = request.form['devname']
+            editedsample.devname = request.form['devname']
         if request.form['submitdate']:
-            editsamples.samplesubmitdate = request.form['submitdate']
+            editedsample = request.form['submitdate']
         if request.form['tests']:
-            editsamples.testsreq = request.form['tests']
+            editedsample == request.form['tests']
         if request.form['otherhere']:
-            editsamples.other = request.form['otherhere']
-        
-        session.add(editsamples)
-        session.commit()
+            editedsample == request.form['otherhere']
 
-        return redirect(url_for('viewall'))
+        session.add(editedsample)
+        sesssion.commit()
+        flash('You have edited your sample')
+        return redirect(url_for('viewall', sample_id = sample_id))
+    else:
+        return render_template('edit.html', sample_id = sample_id, s = editsample)
 
 @app.route('/view/<int:sample_id>/delete', methods = ['GET', 'POST'])
 def deletesample(sample_id):
