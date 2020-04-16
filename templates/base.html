@@ -10,15 +10,17 @@
       {% endif %}
     </head>
     <body>
-        <div><a href="#">Home</a>
-             <a href="#">Submit samples</a>
-             <a href="#">Search for samples</a>
-             <a href="#">Check Status</a>
+        <div><a href="{{url_for('home')}}">Home|</a>
+             <a href="{{url_for('newsamples')}}">Submit samples|</a>
+             <a href ="{{url_for('viewall')}}">View Current Samples submitted|</a>
+             <a href="#">Search for samples|</a>
+             <a href="#">Check Status|</a>
              <a href="#">Login</a></div>
         <hr>
       {% block content %}
       <p>Hello! This is a sample inventory/submission system. This is a simple way 
       for your QA/QC teams to help manage samples submitted for testing, and 
-      a better way of tracking instead of using an excel sheet.</p>{% endblock %}
+      a better way of tracking instead of using an excel sheet.</p>
+      {% endblock %}
     </body>
 </html>
