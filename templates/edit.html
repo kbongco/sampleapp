@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{%  block header %}
+
+<title>Edit your Samples Here</title>
+
+{% endblock %}
+
+<h2>Edit your game here</h2>
+<div class = 'form'>
+    <form action = "{{url_for('editsamples, sample_id = sample_id')}}" method = 'post'>
+    <p>Lot Number:</p>
+        <input type ='text' size = '50' name = 'lotnumber' placeholder = 's.lotnumber'>
+    <p>Sample Name:</p>
+        <input type = 'text' size = '50' name ="samplename" placeholder = 's.samplename'>
+
+    <p>Developer Name:</p>
+        <input type ='text' size = '50' name ='devname' placeholder = 's.devname'>
+    
+    <p>Submit Date</p>
+        <input type = "text" size = '50' name ='submitdate' placeholder = 's.samplesubmitdate'>
+
+    <p>Tests Required/Details</p>
+        <input type ='text' size = '100' name ='tests' placeholder = 's.tests'>
+
+    <p>Other Instructions</p>
+        <input type='text' size = '100' name ='otherhere' placeholder = 's.other'>
+
+</br>
+</br>
+
+<div>
+    <input type ='submit' value = 'Edit'><br>
+    </form>
+</div>
