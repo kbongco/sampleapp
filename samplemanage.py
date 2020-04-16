@@ -71,6 +71,14 @@ def editsample(sample_id):
 
         return redirect(url_for('viewall'))
 
+@app.route('/view/<int:sample_id>/delete', methods = ['GET', 'POST'])
+def deletesample(sample_id):
+    deletesamples = session.query(samples).filter_by(id = sample_id).one()
+    if request.method == 'POST':
+        session.delete(deletesamples)
+        session.commit()
+        return redirect(url_for('viewall'))
+
 
 
 
