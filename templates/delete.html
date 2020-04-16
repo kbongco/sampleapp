@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<!DOCTYPE HTML>
+{%  block header %}
+
+<title>Delete</title>
+
+{% endblock %}
+
+{%block content %}
+
+<body>
+    <h1>Warning!</h1>
+    <h2>If you are the developer in charge of this sample, you
+        are about to delete a sample submitted for testing. Are 
+        you sure about that? If not press cancel now, if yes you
+        want the sample deleted, then the admin will send you an email
+        confirming your deletion from the system.
+    </h2>
+    <div class = 'body'>
+        <form action = "#" method ='POST'>
+            <input type = 'submit', value = 'delete'>
+
+        </form>
+
+        <a href = "#">cancel</a>
+    </div>
+</body>
