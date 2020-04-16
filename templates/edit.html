@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-{%  block header %}
-
+{% block header %}
 <title>Edit your Samples Here</title>
-
 {% endblock %}
 
+
+{%block content %}
 <h2>Edit your game here</h2>
 <div class = 'form'>
-    <form action = "{{url_for('editsamples, sample_id = sample_id')}}" method = 'post'>
+    <form action = "#" method = 'post'>
     <p>Lot Number:</p>
         <input type ='text' size = '50' name = 'lotnumber' placeholder = 's.lotnumber'>
     <p>Sample Name:</p>
@@ -31,4 +31,5 @@
 <div>
     <input type ='submit' value = 'Edit'><br>
     </form>
+{% endblock %}
 </div>
