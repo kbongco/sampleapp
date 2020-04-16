@@ -1,3 +1,23 @@
-<doctype html>
-    <title>All Samples</title>
-    {{ table }}
+{% extends "base.html" %}
+{% block title %}View Samples Here{% endblock %}
+{% block content %}
+<h1 style ='text-align:center;'>All current Samples</h1>
+  {% for s in Samples %}
+
+    <p>{{s.lotnumber}}</p>
+    <p>{{s.samplename}}</p>
+    <p>{{s.devname}}</p>
+    <p>{{s.samplesubmitdate}}</p>
+    <p>{{s.testsreq}}</p>
+    <p>{{s.other}}</p>
+
+
+      <div class ='editanddelete'>
+        <h4><a href ="#">Edit</a></h4>
+        <h4><a href ="#">Delete</a></h4>
+      </div>
+
+  </body>
+  {% endfor %}
+  {% endblock %}
+</html>
