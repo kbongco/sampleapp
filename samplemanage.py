@@ -26,6 +26,10 @@ session = DBSession()
 def home():
     return render_template('base.html')
 
+@app.route('/search')
+def search():
+    return render_template('search.html')
+
 @app.route('/view')
 def viewall():
     Samples = session.query(samples).all()
@@ -81,7 +85,9 @@ def deletesample(sample_id):
     if request.method == 'POST':
         session.delete(deletesamples)
         session.commit()
-        return redirect(url_for('viewall'))
+        return redirect(url_for('viewall', sample_id = sample_id))
+    else:
+        return render_template('delete.html', sample_id = sample_id, s = deletesamples )
 
 
 
