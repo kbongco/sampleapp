@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 <!DOCTYPE HTML>
 {%  block header %}
-
 <title>Delete</title>
-
 {% endblock %}
 
 {%block content %}
@@ -22,6 +20,7 @@
 
         </form>
 
-        <a href = "#">cancel</a>
+        <a href = "{{url_for('viewall')}}">cancel</a>
     </div>
+    {% endblock %}
 </body>
