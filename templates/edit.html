@@ -5,9 +5,9 @@
 
 
 {%block content %}
-<h2>Edit your game here</h2>
+<h2>Edit your sample here</h2>
 <div class = 'form'>
-    <form action = "#" method = 'post'>
+    <form action = "{{url_for('editsample', sample_id = sample_id)}}" method = 'post'>
     <p>Lot Number:</p>
         <input type ='text' size = '50' name = 'lotnumber' placeholder = 's.lotnumber'>
     <p>Sample Name:</p>
