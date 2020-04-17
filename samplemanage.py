@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-from flask import render_template, url_for,redirect
+from flask import render_template, url_for,redirect, flash
 from flask import request
 from tables import AllSamples
 
@@ -12,6 +12,7 @@ from sqlalchemy.orm import sessionmaker
 from databasesetup import Base, samples
 
 app = Flask(__name__)
+app.secret_key = 'super_secret_key'
 engine = create_engine('sqlite:///totalsamples.db',
 connect_args = {'check_same_thread': False})
 
@@ -51,24 +52,24 @@ def newsamples():
 @app.route('/view/<int:sample_id>/edit', methods = ['GET', 'POST'])
 def editsample(sample_id):
     
-    editedsample = session.query(samples).filter_by(id = sample_id).one()
+    edits = session.query(samples).filter_by(id = sample_id).one()
     
     if request.method == 'POST':
         if request.form['lotnumber']:
-            editedsample.lotnumber = request.form['lotnumber']
+            edits.lotnumber = request.form['lotnumber']
         if request.form['samplename']:
-            editedsample.samplename = request.form['samplename']
+            edits.samplename = request.form['samplename']
         if request.form['devname']:
-            editedsample.devname = request.form['devname']
+            edits.devname = request.form['devname']
         if request.form['submitdate']:
-            editedsample = request.form['submitdate']
+            edits = request.form['submitdate']
         if request.form['tests']:
-            editedsample == request.form['tests']
+            edits == request.form['tests']
         if request.form['otherhere']:
-            editedsample == request.form['otherhere']
+            edits == request.form['otherhere']
 
-        session.add(editedsample)
-        sesssion.commit()
+        session.add(edits)
+        session.commit()
         flash('You have edited your sample')
         return redirect(url_for('viewall', sample_id = sample_id))
     else:
