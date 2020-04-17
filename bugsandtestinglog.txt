@@ -1,0 +1,36 @@
+These are just random notes to help me keep track of what I'm doing
+and testing. Don't mind it! 
+
+April 16 2020 notes Bugs/Testing
+Testing View feature and Create feature
+-The initial test of the view feature samples not showing up 
+the problem was the base file 
+-Creating a new sample updates fine and the database works fine
+-begin testing edit/delete features 
+-begin looking at documentation for Flask-WTF
+
+
+April 17 2020 Bugs/Testing
+
+Testing of the edit feature 
+
+-flash is not defined -> simple fix forgot to import flash
+-RunTimeError occured due to no secret key 
+    -secret key has been added to fix this problem
+-Edit functionality partially works, no more backend errors, however changes not being saved
+-When editing more than one, it has backend error
+-Edit post method was still set to '#' -> causing the problems, will test again. 
+-Placeholder not showing what was placeholded
+-Editing date submitted is causing problems
+
+Testing of delete feature
+
+-URL routing added into view html file
+-Testing of delete, discovered a problem with delete template
+-Problems all fixed, delete is now working properly 
+
+Beginning coding the Search function and template
+
+-search template Jinja error -> block content 
+-testing using flask-whooshalchemy, (check if works and doesn;t mess things up)
+
