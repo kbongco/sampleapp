@@ -12,13 +12,14 @@ properly it wouldn't be easy to filter through all the samples that were submitt
 Right now this is very rough, I plan to add a search bar as well as authentication and having the view section of the app
 look more presentable. 
 
+At first glance, it looks very similiar to one of my early projects that I did when I was taking 
+Udacity's Full Stack Web Developer, but now I am learning how to add extra features into this to 
+make it more presentable and more functional! 
+
 <h5>Current updates</h5>
-(This is just for me to keep track of what I'm doing)<br> 
-April 16 2020 = Updates<br>
-<ul>
-<li>Fixed View to have samples show up</li>
-<li>Added various routings to base page</li>
-<li>Begin testing the edit/delete funcionality</li>
-<li>Begin figuring out how to implement a search form</li>
-</ul>
+I have a text file with a bugs/testing/updates log with this. Its just a way
+for me to keep track of what I'm doing and also a way to catch all the bugs
+and problems and write down what I've learned trying to fix it. 
+
+
 
