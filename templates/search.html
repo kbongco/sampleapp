@@ -6,8 +6,25 @@
 {% endblock %}
 
 {% block content %}
-<h5>Can't find your sample? Too many in the way! 
+<h5>Can't find your sample? Too many in the way? 
     Use this to find your sample! 
 </h5>
+
+<div class = 'form'>
+    <form action = "#" method = 'POST'>
+        <label for = 'attribute'>Choose how you want to search by</label>
+        <select id = 'sttributes' name = 'attributes'>
+            <option value ='lotnumber'>Lot Number</option>
+            <option value = 'samplename'>Sample Name</option>
+            <option value = 'devname'>Developer Name</option>
+        </select>
+        <p>Information:</p>
+        <input type = 'text' size = '50' name ='information'>
+
+        <input type = 'submit' value = 'search'>
+
+        <a href = '#'>Cancel</a>
+    </form>
+</div>
 
 {% endblock %}
