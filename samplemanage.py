@@ -4,12 +4,14 @@ from flask import Flask
 from flask import render_template, url_for,redirect, flash
 from flask import request
 from tables import AllSamples
+from forms import SampleSearchForm
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from databasesetup import Base, samples
+
 
 app = Flask(__name__)
 app.secret_key = 'super_secret_key'
@@ -26,9 +28,27 @@ session = DBSession()
 def home():
     return render_template('base.html')
 
-@app.route('/search')
+@app.route('/search', methods = ['GET','POST'])
 def search():
+    search = SampleSearchForm(request.form)
+    if request.method == 'POST':
+        return results(search)
+
     return render_template('search.html')
+
+@app.route('/results')
+def search_results(search):
+    results = []
+    search_string = search.data['search']
+
+    if search.data['search'] == '':
+        results = session.query(samples)
+
+    if not results:
+        flash ('Nothing found!')
+        return redirect ('/view')
+    else:
+        return render_template('results.html', results = results)
 
 @app.route('/view')
 def viewall():
