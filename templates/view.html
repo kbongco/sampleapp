@@ -2,22 +2,38 @@
 {% block title %}View Samples Here{% endblock %}
 {% block content %}
 <h1 style ='text-align:center;'>All current Samples</h1>
-  {% for s in Samples %}
 
-    <p>{{s.lotnumber}}</p>
-    <p>{{s.samplename}}</p>
-    <p>{{s.devname}}</p>
-    <p>{{s.samplesubmitdate}}</p>
-    <p>{{s.testsreq}}</p>
-    <p>{{s.other}}</p>
+<div class = 'container'>
+    <table class = 'table table-hover'>
+        <thead>
+            <tr>
+                <td>Lot Number</td>
+                <td>Sample Name</td>
+                <td>Developer Name</td>
+                <td>Date Submitted</td>
+                <td>Tests</td>
+                <td>Other Instructions</td>
+                <td>Edit</td>
+                <td>Delete</td>
 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for s in Samples %}
+                <td>{{s.lotnumber}}</td>
+                <td>{{s.samplename}}</td>
+                <td>{{s.devname}}</td>
+                <td>{{s.samplesubmitdate}}</td>
+                <td>{{s.testsreq}}</td>
+                <td>{{s.other}}</td>
+                
 
-      <div class ='editanddelete'>
-        <h4><a href ="{{url_for('editsample', sample_id = s.id)}}">Edit</a></h4>
-        <h4><a href ="{{url_for('deletesample', sample_id = s.id)}}">Delete</a></h4>
-      </div>
-
-  </body>
+            </tr>
+        </tbody>
+        
   {% endfor %}
   {% endblock %}
-</html>
+    </html>
+    </table>
+</div>
