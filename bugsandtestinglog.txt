@@ -33,4 +33,12 @@ Beginning coding the Search function and template
 
 -search template Jinja error -> block content 
 -testing using flask-whooshalchemy, (check if works and doesn;t mess things up)
+ 
+April 18 2020 - Log 
+-Completed Search form, beginning coding backend code 
+-added search routing and results routing
+
+April 19 2020 -Log
+-search bar testing -> not really working
+-Fixed visuals for viewing all samples, to table form 
 
