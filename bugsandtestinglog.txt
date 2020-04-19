@@ -41,4 +41,8 @@ April 18 2020 - Log
 April 19 2020 -Log
 -search bar testing -> not really working
 -Fixed visuals for viewing all samples, to table form 
+-Need to figure out how to put edit/delete links 
+-edit delete links have been put back into the file 
+-resume search testing
+-begin adding css in 
 
