@@ -32,7 +32,7 @@ def home():
 def search():
     search = SampleSearchForm(request.form)
     if request.method == 'POST':
-        return results(search)
+        return search_results(search)
 
     return render_template('search.html')
 
@@ -45,7 +45,7 @@ def search_results(search):
         results = session.query(samples)
 
     if not results:
-        flash ('Nothing found!')
+        flash ('Nothing found! Try again')
         return redirect ('/view')
     else:
         return render_template('results.html', results = results)
