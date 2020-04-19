@@ -27,6 +27,8 @@
                 <td>{{s.samplesubmitdate}}</td>
                 <td>{{s.testsreq}}</td>
                 <td>{{s.other}}</td>
+                <td><a href="{{url_for('editsample', sample_id = s.id)}}">Edit</a></td>
+                <td><a href="{{url_for('deletesample', sample_id = s.id)}}">Delete</a></td>
                 
 
             </tr>
