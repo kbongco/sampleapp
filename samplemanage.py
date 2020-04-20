@@ -50,6 +50,10 @@ def search_results(search):
     else:
         return render_template('results.html', results = results)
 
+@app.route('/login')
+def logged_in():
+    return render_template('login.html')
+
 @app.route('/view')
 def viewall():
     Samples = session.query(samples).all()
